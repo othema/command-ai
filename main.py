@@ -9,10 +9,12 @@ def main():
   operating_system = platform.system() + " " + platform.release()
   dirname = os.path.abspath(os.path.dirname(__file__))
 
+  os_replace = lambda x: x.replace("{OPERATING_SYSTEM}", operating_system)
+
   with open(os.path.join(dirname, "prompts/command.txt")) as f:
-    system_command = f.read().replace("{OPERATING_SYSTEM}", operating_system)
+    system_command = os_replace(f.read())
   with open(os.path.join(dirname, "prompts/explain.txt")) as f:
-    system_explain = f.read().replace("{OPERATING_SYSTEM}", operating_system)
+    system_explain = os_replace(f.read())
 
   try:
     prompt = " ".join(sys.argv[1:])

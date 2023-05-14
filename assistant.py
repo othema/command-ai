@@ -1,11 +1,13 @@
 import openai
 import dotenv
-from os import getenv
+import os
 
-dotenv.load_dotenv(".env")
-api_key = getenv("API_KEY")
-api_base = getenv("API_BASE")
-model = getenv("MODEL")
+dirname = os.path.abspath(os.path.dirname(__file__))
+print(dirname)
+dotenv.load_dotenv(os.path.join(dirname, ".env"))
+api_key = os.getenv("API_KEY")
+api_base = os.getenv("API_BASE")
+model = os.getenv("MODEL")
 
 API_BASE = "https://api.pawan.krd/v1"  # https://api.openai.com/v1
 HEADERS = {

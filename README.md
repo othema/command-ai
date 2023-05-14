@@ -1,5 +1,5 @@
 # Command AI
-A Github Copilot for CLI clone.
+A Github Copilot for CLI clone. Works on **any** operating system.
 
 ## Examples
 ![Example 1](https://user-images.githubusercontent.com/78880488/238178855-78ded997-0a1d-463c-8793-3a026d573c73.png)

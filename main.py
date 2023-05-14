@@ -1,9 +1,10 @@
 import assistant
 import sys
 from beaupy import select, spinners
-from os import system
+from os import system, getenv
 
-SYSTEM = "I want you to act like a CMD translator. I will give you a description of the command in english, and you will translate that into a CMD command for Windows. Do not provide any explanations. Do not respond with anything except the command"
+operating_system = getenv("OS")
+SYSTEM = f"I want you to act like a CMD translator. I will give you a description of the command in english, and you will translate that into a CMD command for {operating_system}. Do not provide any explanations. Do not respond with anything except the command"
 
 def main():
   try:

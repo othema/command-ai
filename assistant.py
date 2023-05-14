@@ -1,9 +1,11 @@
 import openai
 import dotenv
+from os import getenv
 
-env = dotenv.load_dotenv(".env")
-api_key = env.get("API_KEY")
-api_base = env.get("API_BASE")
+dotenv.load_dotenv(".env")
+api_key = getenv("API_KEY")
+api_base = getenv("API_BASE")
+model = getenv("MODEL")
 
 API_BASE = "https://api.pawan.krd/v1"  # https://api.openai.com/v1
 HEADERS = {
@@ -16,7 +18,7 @@ openai.api_key = api_key
 openai.api_base = api_base
 
 
-def ask(message, system = "", model="gpt-3.5-turbo"):
+def ask(message, system = "", model=model):
 	completion = openai.ChatCompletion.create(
 		model=model,
 		messages=[

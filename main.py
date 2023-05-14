@@ -1,32 +1,42 @@
 import assistant
 import sys
 from beaupy import select, spinners
-from os import system
+import os
 import platform
 
-operating_system = platform.system() + " " + platform.release()
-SYSTEM = f"I want you to act like a CMD translator. I will give you a description of the command in english, and you will translate that into a CMD command for {operating_system}. Do not provide any explanations. Do not respond with anything except the command"
 
 def main():
+  operating_system = platform.system() + " " + platform.release()
+  dirname = os.path.abspath(os.path.dirname(__file__))
+
+  with open(os.path.join(dirname, "prompts/command.txt")) as f:
+    system_command = f.read().replace("{OPERATING_SYSTEM}", operating_system)
+  with open(os.path.join(dirname, "prompts/explain.txt")) as f:
+    system_explain = f.read().replace("{OPERATING_SYSTEM}", operating_system)
+
   try:
     prompt = " ".join(sys.argv[1:])
-    command = generate_command(prompt)
+    command = generate_command(prompt, system_command, system_explain)
     if command:
-      system(command)
+      os.system(command)
     else:
       print("❌ Cancelled")
   except KeyboardInterrupt:
     print("❌ Cancelled")
+  except AttributeError:
+    print("❌ Cancelled")
 
 
-def generate_command(prompt):
+def generate_command(prompt, system_command="", system_explain=""):
   loader = spinners.Spinner(spinners.CLOCK, "Asking ChatGPT...")
 
   loader.start()
-  command = assistant.ask(prompt, SYSTEM)
+  command = assistant.ask(prompt, system_command)
+  explanation = syntax_highlight(assistant.ask(command, system_explain))
   loader.stop()
 
-  print("\033[1m" + command + "\033[0m")
+  print("\n\033[1m" + syntax_highlight(command, "\33[33m") + "\033[0m\n")
+  print(explanation + "\n")
   action = select(["✅ Run this command", "📝 Revise query", "❌ Cancel"]).lower()
 
   if action == "✅ run this command":
@@ -36,6 +46,10 @@ def generate_command(prompt):
     return generate_command(f"Change this command: {command}\nwith these edits: {revision_prompt}")
   else:
     return None
+
+
+def syntax_highlight(text, color="\33[94m"):
+  return text.replace("{STARTH}", color).replace("{ENDH}", "\033[0m")
 
 
 main()

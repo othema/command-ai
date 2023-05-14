@@ -14,7 +14,6 @@ HEADERS = {
 	"Content-Type": "application/json"
 }
 
-
 openai.api_key = api_key
 openai.api_base = api_base
 

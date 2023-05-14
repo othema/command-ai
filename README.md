@@ -21,6 +21,6 @@ A Github Copilot for CLI clone. Works on **any** operating system.
 <br />
 You can setup an alias in your `.bashrc` to allow for usage in any directory, for example:
 ```bash
-alias ai = "python /path/to/code/main.py $1"
+alias ai="python /path/to/code/main.py"
 ```
 This allows for usage like this from any directory: `ai <prompt>`

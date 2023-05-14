@@ -7,14 +7,15 @@ A Github Copilot for CLI clone. Works on **any** operating system.
 
 ## Setup
 1. Clone the project `git clone https://github.com/othema/command-ai.git`
-2. `cd` to the project directory, and create a `.env` file
-3. Add this data to the `.env` file:
+1. `cd` to the project directory, and create a `.env` file
+1. Add this data to the `.env` file:
 	```env
 	API_KEY = <YOUR_API_KEY>
 	API_BASE = https://api.openai.com/v1  # To allow for proxies
 	MODEL = gpt-3.5-turbo  # Or choose any other model
 	```
 	The `API_BASE` key allows for proxy configuration, for example if you are not willing to pay for the OpenAI API key. If you are interested, take a look at [this proxy](https://github.com/PawanOsman/ChatGPT) to use this project for free.
+1. Install the requirements `pip install -r requirements.txt`
 
 ## Usage
 **Basic usage:** `python main.py <prompt>`

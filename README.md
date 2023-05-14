@@ -17,7 +17,7 @@ A Github Copilot for CLI clone.
 	The `API_BASE` key allows for proxy configuration, for example if you are not willing to pay for the OpenAI API key. If you are interested, take a look at [this proxy](https://github.com/PawanOsman/ChatGPT) to use this project for free.
 
 ## Usage
-Basic usage: `python main.py <prompt>`
+**Basic usage:** `python main.py <prompt>`
 <br />
 You can setup an alias in your `.bashrc` to allow for usage in any directory, for example:
 ```bash

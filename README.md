@@ -20,7 +20,7 @@ A Github Copilot for CLI clone. Works on **any** operating system.
 ## Usage
 **Basic usage:** `python main.py <prompt>`
 <br />
-You can setup an alias in your `.bashrc` to allow for usage in any directory, for example:
+You can setup an alias in your `.bashrc` to allow for usage in any directory, for example (in Linux/MacOS):
 ```bash
 alias ai="python /path/to/code/main.py"
 ```

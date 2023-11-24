@@ -4,7 +4,7 @@ import os
 
 dirname = os.path.abspath(os.path.dirname(__file__))
 dotenv.load_dotenv(os.path.join(dirname, ".env"))
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY")
 api_base = os.getenv("API_BASE")
 model = os.getenv("MODEL")
 

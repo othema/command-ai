@@ -10,7 +10,7 @@ A Github Copilot for CLI clone. Works on **any** operating system.
 1. `cd` to the project directory, and create a `.env` file
 1. Add this data to the `.env` file:
 	```env
-	API_KEY = <YOUR_API_KEY> # It also supports OPENAI_API_KEY environment variable
+	OPENAI_API_KEY = <YOUR_API_KEY>
 	API_BASE = https://api.openai.com/v1  # To allow for proxies
 	MODEL = gpt-3.5-turbo  # Or choose any other model
 	```

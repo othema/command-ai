@@ -45,7 +45,7 @@ def generate_command(prompt, system_command="", system_explain=""):
       return command
   elif action == "📝 revise query":
     revision_prompt = input("Revision: ")
-    return generate_command(f"Change this command: {command}\nwith these edits: {revision_prompt}", system_command)
+    return generate_command(f"Change this command: {command}\nwith these edits: {revision_prompt}", system_command, system_explain)
   else:
     return None
 
